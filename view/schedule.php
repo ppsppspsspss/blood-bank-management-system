@@ -1,22 +1,26 @@
 <?php
+session_start();
+if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 require_once('../model/schedule-model.php');
-$result=allSchedule(); 
+$result = allSchedule(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Schedule</title>
 </head>
-<body>
+<body><a href="manager-home.php" class="backButton">&#8249;</a><br><br>
 <center>
         <h1>Schedule List</h1>
-        <hr width="20%"><br>
-    </center>
+        <hr width="20%" color="orange"><br>
+</center><br>
+<center><a href="create-new-schedule.php"><button class="btn submit">Create New Schedule</button></a></center><br><br>
     <?php
     if(mysqli_num_rows($result) > 0) {
-        echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
+        echo"<table align=\"center\" width=\"85%\" border=\"1\" bgcolor = \"white\" cellpadding=\"15\" cellspacing=\"0\" class=\"table\">
         <tr><td align=\"center\">Name</td>
             <td align=\"center\">Email</td>
             <td align=\"center\">Phone</td>

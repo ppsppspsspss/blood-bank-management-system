@@ -46,4 +46,16 @@ require_once('database.php');
         return $result;
     }
 
+    function getUserByMail($email){
+
+        $con=dbConnection();
+        $sql="select * from UserInfo where Email = '$email'";
+
+        $result = mysqli_query($con,$sql);
+        $row = mysqli_fetch_assoc($result);
+
+        return $row;
+        
+    }
+
 ?>
