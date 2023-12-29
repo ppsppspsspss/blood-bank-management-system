@@ -8,11 +8,14 @@ $result=alluser();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
+    <script src="/view/javascript/script.js"></script>
 </head>
 <body>
 <center>
         <h1>User List</h1>
         <hr width="20%"><br>
+        <input type="text" name="search" onkeypress="searchUser(this.value)" placeholder="Search By Name">
+        <br><br>
     </center>
     <?php
     if(mysqli_num_rows($result) > 0) {
