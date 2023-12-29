@@ -8,7 +8,4 @@ function allbloodreq(){
     return $result;
 }
 
-function approve($rid,){
-
-}
 ?>
