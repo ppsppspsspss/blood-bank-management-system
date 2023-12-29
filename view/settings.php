@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
+if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 ?>
 <!DOCTYPE html>
 <html lang="en">

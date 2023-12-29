@@ -58,4 +58,14 @@ require_once('database.php');
         
     }
 
+    function updateProfilePicture($imagename, $id){
+
+        $con = dbConnection();
+        $sql = "update UserInfo set ProfilePicture = '{$imagename}' where UserID = '{$id}'";
+             
+        if(mysqli_query($con,$sql)===true) return true;
+        else return false; 
+        
+    }
+
 ?>
