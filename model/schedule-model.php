@@ -19,4 +19,12 @@ function deleteschedule($id){
         return false;
     } 
 }
+
+function addSchedule($name, $email, $phone, $bloodG, $gender, $donate_date, $addedBy){
+    $conn=dbConnection();
+    $sql="insert into scheduleinfo values('', '{$name}', '{$email}', '{$phone}', '{$bloodG}', '{$gender}', '{$donate_date}', '{$addedBy}');";
+    $result = mysqli_query($conn, $sql);
+    if(!$result) return false;
+    else return true;
+}
 ?>

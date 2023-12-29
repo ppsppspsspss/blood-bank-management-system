@@ -1,6 +1,14 @@
 <?php
 session_start();
+require_once('../model/user-info-model.php');
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
+
+$donor = null;
+if(isset($_GET['donorEmail'])){
+    $donor = getUserByMail($_GET['donorEmail']);
+    if($donor && $donor['Role'] !== "Donor") $donor = null;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,24 +18,43 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
     <title>Create New Schedule</title>
 </head>
 <body>
+
 <table width="27%" border="1" cellspacing="0" cellpadding="25" class="table">
     <tr>
         <td>
-            Schedule Date <br>
-            <input type="date" name="scheduleDate">
+            <form action="" method="get">
+                Donor Email <br>
+                <input type="email" name="donorEmail">
+                <br><br>
+                <button type="submit">Import</button>
+            </form>
             <br><br>
-            Donor Email <br>
-            <input type="email" name="donorEmail">
-            <br><br>
-            <button>Import</button>
-            <br><br>
-            <h1>Donor Information</h1>
-            Name : Empty<br><br>
-            Blood Group : Empty<br><br>
-            Gender : Empty<br><br>
-            Phone Number : Empty<br><br>
+            <form action="../controller/create-new-schedule-controller.php" method="post">
+                Schedule Date <br>
+                <input type="date" name="scheduleDate">
+                <br><br>
+                <h1>Donor Information</h1>
+                Name : <?php if($donor != null) {echo $donor['FirstName'] . " " . $donor['LastName']; } else echo "Empty" ?> <br><br>
+                Blood Group : <?php if($donor != null) {echo $donor['BloodGroup']; } else echo "Empty" ?> <br><br>
+                Gender : <?php if($donor != null) {echo $donor['Gender']; } else echo "Empty" ?> <br><br>
+                Phone Number : <?php if($donor != null) {echo $donor['Phone']; } else echo "Empty" ?> <br><br>
+                <?php 
+                    if($donor != null) {
+                        ?>
+                            <button type="submit">Add</button>
+                            <input type="hidden" name="name" value="<?= $donor['FirstName'] . $donor['LastName'] ?> ">
+                            <input type="hidden" name="email" value="<?= $donor['Email']?> ">
+                            <input type="hidden" name="phone"  value="<?= $donor['Phone']?> ">
+                            <input type="hidden" name="bloodG"  value="<?= $donor['BloodGroup']?> ">
+                            <input type="hidden" name="gender"  value="<?= $donor['Gender']?> ">
+                            <input type="hidden" name="added_by"  value="<?= userInfo($_COOKIE['id'])['Email'] ?> ">
+                        <?php
+                    }
+                ?>
+            </form>
         </td>
     </tr>
 </table>
+
 </body>
 </html>

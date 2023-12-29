@@ -21,7 +21,7 @@ require_once('database.php');
     function addUser($firstName, $lastName, $email, $password, $bloodGroup, $dob, $gender, $country, $phone, $role){
 
         $con = dbConnection();
-        $sql = "insert into UserInfo values('', '{$firstName}' ,'{$lastName}' ,'{$email}', '{$password}', '{$bloodGroup}', '{$dob}', '{$gender}', '{$country}', '{$phone}', 'uploads\images\default_pfp.png', '{$role}')";
+        $sql = "insert into UserInfo values('', '{$firstName}' ,'{$lastName}' ,'{$email}', '{$password}', '{$bloodGroup}', '{$dob}', '{$gender}', '{$country}', '{$phone}', 'uploads/images/default_pfp.png', '{$role}')";
 
         if(mysqli_query($con, $sql)) return true;
         else return false;
