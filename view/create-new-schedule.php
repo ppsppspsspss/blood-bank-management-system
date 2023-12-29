@@ -34,7 +34,7 @@ if(isset($_GET['donorEmail'])){
                 <input type="date" name="scheduleDate">
                 <br><br>
                 <h1>Donor Information</h1>
-                Name : <?php if($donor != null) {echo $donor['FirstName'] . $donor['LastName']; } else echo "Empty" ?> <br><br>
+                Name : <?php if($donor != null) {echo $donor['FirstName'] . " " . $donor['LastName']; } else echo "Empty" ?> <br><br>
                 Blood Group : <?php if($donor != null) {echo $donor['BloodGroup']; } else echo "Empty" ?> <br><br>
                 Gender : <?php if($donor != null) {echo $donor['Gender']; } else echo "Empty" ?> <br><br>
                 Phone Number : <?php if($donor != null) {echo $donor['Phone']; } else echo "Empty" ?> <br><br>
