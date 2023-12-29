@@ -1,9 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
-    
     require_once('../model/user-info-model.php'); 
-
     $id = $_COOKIE['id'];
     $row = userInfo($id);
     $flag = 0;
@@ -11,8 +9,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     $id2 = $_GET['id'];
     $row2 = UserInfo($id2);
     if($id!=$id2) $flag = 1;
-    } 
- 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +43,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
                     Gender     : {$row['Gender']} </font><br><br>
                     Country     : {$row['Country']} </font><br><br>
                     Phone   : {$row['Phone']} </font><br>
-                </td>";
-
+                    </td>";
                 }else{
                     $fullname=$row2['FirstName']." ".$row2['LastName'];
                 echo "<td>
@@ -58,8 +54,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
                 Gender     : {$row2['Gender']} </font><br><br>
                 Country     : {$row2['Country']} </font><br><br>
                 Phone   : {$row2['Phone']} </font><br>
-            </td>";
-
+                </td>";
                 }
 
             ?>
