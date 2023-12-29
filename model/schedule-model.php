@@ -6,4 +6,10 @@ function allSchedule(){
     $result=mysqli_query($conn,$sql);
     return $result;
 }
+function deleteschedule($id){
+    $conn=dbConnection();
+    $sql="delete from scheduleinfo where ScheduleID='$id'";
+    $result=mysqli_query($conn,$sql);
+    return $result;
+}
 ?>

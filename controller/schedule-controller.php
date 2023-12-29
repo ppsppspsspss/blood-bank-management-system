@@ -1,4 +1,5 @@
 <?php
+require_once('../model/schedule-model.php');
 $id=$_GET['id'];
-echo "$id";
+$result=deleteschedule($id);
 ?>
