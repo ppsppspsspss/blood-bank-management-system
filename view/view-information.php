@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     
@@ -38,9 +37,9 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
             <?php
 
                 if($flag==0){
-
+                    $fullname=$row['FirstName']." ".$row['LastName'];
                 echo "<td>
-                    Full Name : {$row['Fullname']} </font><br><br>
+                    Full Name : {$fullname} </font><br><br>
                     Username  : {$row['Username']} </font><br><br>
                     DOB       : {$row['DOB']} </font><br><br>
                     Religion  : {$row['Religion']} </font><br><br>
@@ -50,9 +49,9 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
                 </td>";
 
                 }else{
-
+                    $fullname=$row2['FirstName']." ".$row2['LastName'];
                 echo "<td>
-                    Full Name : {$row2['Fullname']} </font><br><br>
+                    Full Name : {$fullname} </font><br><br>
                     Username  : {$row2['Username']} </font><br><br>
                     DOB       : {$row2['DOB']} </font><br><br>
                     Religion  : {$row2['Religion']} </font><br><br>
