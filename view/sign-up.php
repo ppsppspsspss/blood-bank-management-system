@@ -7,12 +7,12 @@ if (isset($_GET['err'])) {
   $err_msg = $_GET['err'];
   
   switch ($err_msg) {
-    case 'firstNameEmpty': {
-        $firstNameMsg = "First name can not be empty.";
+    case 'firstNameInvalid': {
+        $firstNameMsg = "First name is invalid.";
         break;
       }
-    case 'lastNameEmpty': {
-        $lastNameMsg = "Last name can not be empty.";
+    case 'lastNameInvalid': {
+        $lastNameMsg = "Last name is invalid.";
         break;
       }
     case 'emailEmpty': {
@@ -53,6 +53,10 @@ if (isset($_GET['err'])) {
       }
     case 'passwordMismatch': {
         $cpasswordMsg = "Passwords do not match.";
+        break;
+      }
+    case 'invalidBloodGroup': {
+        $cpasswordMsg = "Blood group is not valid.";
         break;
       }
   }
