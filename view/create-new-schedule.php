@@ -15,10 +15,11 @@ if(isset($_GET['donorEmail'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Create New Schedule</title>
 </head>
 <body>
-
+<a href="manager-home.php" class="backButton">&#8249;</a><br><br>
 <table width="27%" border="1" cellspacing="0" cellpadding="25" class="table">
     <tr>
         <td>
@@ -26,11 +27,11 @@ if(isset($_GET['donorEmail'])){
                 Donor Email <br>
                 <input type="email" name="donorEmail">
                 <br><br>
-                <button type="submit">Import</button>
+                <button type="submit" class="btn submit">Import</button>
             </form>
             <br><br>
             <form action="../controller/create-new-schedule-controller.php" method="post">
-                Schedule Date <br>
+                Schedule Date &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="date" name="scheduleDate">
                 <br><br>
                 <h1>Donor Information</h1>
@@ -41,7 +42,7 @@ if(isset($_GET['donorEmail'])){
                 <?php 
                     if($donor != null) {
                         ?>
-                            <button type="submit">Add</button>
+                            <button type="submit"  class="btn submit">Create Schedule</button>
                             <input type="hidden" name="name" value="<?= $donor['FirstName'] . $donor['LastName'] ?> ">
                             <input type="hidden" name="email" value="<?= $donor['Email']?> ">
                             <input type="hidden" name="phone"  value="<?= $donor['Phone']?> ">
