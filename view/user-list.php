@@ -1,6 +1,6 @@
 <?php
 require_once('../model/user-info-model.php');
-$result=alluser();
+$result = alluser();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@ $result=alluser();
             echo"
             <tr><td align=\"center\">$name</td>
             <td align=\"center\">$email</td>
-            <td align=\"center\"><a href=\"../controller/userupdate-controller.php?id=$uid\">Update</a></td>
+            <td align=\"center\"><a href=\"../view/view-information.php?id=$uid\">View Information</a></td>
         </tr>";
         }
         echo"</table>";

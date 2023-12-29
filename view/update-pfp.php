@@ -43,6 +43,7 @@ if (isset($_GET['success'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a href="profile.php" class="backButton">&#8249;</a>
     <center>
     <form action="../controller/update-pfp-controller.php" method="POST" enctype="multipart/form-data">
     <br><br>
