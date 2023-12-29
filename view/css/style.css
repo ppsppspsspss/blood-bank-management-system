@@ -52,7 +52,7 @@ a{text-decoration: none;}
 }
 .submit:hover
 {
-    color: black;
+    color: white;
 }
 .btn::before
 {
@@ -61,7 +61,7 @@ a{text-decoration: none;}
     left: 0;
     width: 100%;
     height: 0%;
-    background: orange;
+    background: rgb(96, 109, 56);
     z-index: -1;
     transition: 0.7s;
 }
@@ -96,4 +96,11 @@ input[type=text] {
     margin: 6px 0;
     box-sizing: border-box;
     border: 1px solid black;
+}
+select {
+    width: 120px;
+    padding: 8px 10px;
+    border: solid black 1px;
+    border-radius: 4px;
+    background-color: wheat;
 }
