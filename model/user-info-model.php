@@ -41,7 +41,7 @@ require_once('database.php');
     }
     function alluser(){
         $conn=dbConnection();
-        $sql="select * from UserInfo";
+        $sql="select * from UserInfo where Role not like 'Manager'";
         $result=mysqli_query($conn,$sql);
         return $result;
     }
