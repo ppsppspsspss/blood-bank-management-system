@@ -95,49 +95,35 @@ if (isset($_GET['success'])) {
                 <form method="post" action="../Controller/edit-information-controller.php" novalidate autocomplete="off" onsubmit="return isValid(this);">
                     <h1>Edit Information</h1>
                     First Name
-                    <input type="text" name="firstName" size="43px">
+                    <input type="text" name="firstName" size="43px" value="<?php echo $row['FirstName'] ?>">
                     <?php if (strlen($firstNameMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $firstNameMsg ?></font>
                     <?php } ?>
                     <br><br>
                     Last Name
-                    <input type="text" name="lastName" size="43px">
+                    <input type="text" name="lastName" size="43px" value="<?php echo $row['LastName'] ?>">
                     <?php if (strlen($lastNameMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $lastNameMsg ?></font>
                     <?php } ?>
                     <br><br>
                     Phone Number
-                    <input type="text" name="phone" size="43px">
+                    <input type="text" name="phone" size="43px" value="<?php echo $row['Phone'] ?>">
                     <?php if (strlen($phoneMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $phoneMsg ?></font>
                     <?php } ?>
                     <br><br>
                     Email
-                    <input type="email" name="email" size="43px">
+                    <input type="email" name="email" size="43px" value="<?php echo $row['Email'] ?>">
                     <?php if (strlen($emailMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $emailMsg ?></font>
                     <?php } ?>
                     <br><br>
-                    Password
-                    <input type="password" name="password" size="43px">
-                    <?php if (strlen($passwordMsg) > 0) { ?>
-                        <br><br>
-                        <font color="red"><?= $passwordMsg ?></font>
-                    <?php } ?>
-                    <br><br>
-                    Confirm Password
-                    <input type="password" name="cpassword" size="43px">
-                    <?php if (strlen($cpasswordMsg) > 0) { ?>
-                        <br><br>
-                        <font color="red"><?= $cpasswordMsg ?></font>
-                    <?php } ?>
-                    <br><br>
                     Blood Group &nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="bloodGroup">
+                    <select name="bloodGroup" value="<?php echo $row['BloodGroup'] ?>">
                         <option value="B+">B+</option>
                         <option value="B+">A+</option>
                         <option value="B+">O+</option>
@@ -150,39 +136,42 @@ if (isset($_GET['success'])) {
                     <?php } ?>
                     <br><br>
                     Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="date" name="dob" size="43px">
+                    <input type="date" type="date" name="dob" size="43px" value="<?php echo date('Y-m-d',strtotime($row["DOB"])) ?>">
                     <?php if (strlen($dobMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $dobMsg ?></font>
                     <?php } ?>
                     <br><br>
+                    <?php $gender=$row['Gender'] ?>
                     Gender &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="gender" value="Male"> Male
-                    <input type="radio" name="gender" value="Female"> Female
-                    <input type="radio" name="gender" value="Other"> Other
+                    <input type="radio" name="gender" value="Male" <?php if($gender=="Male") echo "checked" ?>> Male
+                    <input type="radio" name="gender" value="Female" <?php if($gender=="Female") echo "checked" ?>> Female
+                    <input type="radio" name="gender" value="Other" <?php if($gender=="Others") echo "checked" ?>> Other
                     <?php if (strlen($genderMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $genderMsg ?></font>
                     <?php } ?>
                     <br><br>
                     Country &nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php
+                    $country=$row['Country'];
+                    ?>
                     <select name="country">
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="India">India</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Other">Other</option>
+                        <option value="Bangladesh" <?php if($country=="Bangladesh") echo "selected"?>>Bangladesh</option>
+                        <option value="India" <?php if($country=="India") echo "selected"?>>India</option>
+                        <option value="United Kingdom" <?php if($country=="United Kingdom") echo "selected"?>>United Kingdom</option>
+                        <option value="United States" <?php if($country=="United States") echo "selected"?>>United States</option>
+                        <option value="Other" <?php if($country=="Other") echo "selected"?>>Other</option>
                     </select>
                     <?php if (strlen($countryMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $countryMsg ?></font>
                     <?php } ?>
                     <br><br>
-                    <button class="btn submit">Create Account</button>
+                    <button class="btn submit">Update Account Info</button>
                 </form>
             </td>
         </tr>
     </table>
     
 </body>
-</html>
