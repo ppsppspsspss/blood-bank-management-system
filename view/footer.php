@@ -1,11 +1,7 @@
-<br><br>
+<br><br><br>
 <center>
-<a href="about-us.php"><p style="color:red;">About Us</p></a><br>
-<p style="color:blue;">"<b>Address:</b> Level-6, Narsingdi, Dhaka 1205" <br>
-<b>Phone:</b> 01881869341 <br>
-<b>Email:</b> avi938@gmail.com <br><br>
-At Holiday, we are passionate about providing an exceptional dining experience. <br>
-Founded in 2016, Holiday has been a culinary destination for Narsingdi residents and visitors. <br>
-Thank you for choosing Holiday. We look forward to serving you and creating memorable dining experiences.</p>
+        <a href="about-us.php"><font size="4">About Us</font></a><br><br><br>
+        <font size="3">BloodBankManagementSystem</font><br><br>
+        <font size="2">A WHO Certified Company</font><br>
+        <font size="1">© 2023 by BloodBankManagementSystem.com, Inc.</font><br><br>
 </center>
-<br>

@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="CSS/mystyleabout.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <br><br><br>
     <center>
     <h1>About Us</h1>
-    <hr width=250><br><br>
-    Welcome to our Restaurant Management System. <br><br>
-    Our website aims to be a culinary haven where passion for food meets exceptional hospitality. We are more than just a restaurant; <br> we are a destination where every meal is a memorable experience. Your satisfaction is our utmost priority, and we value your <br> feedback.<br><br><br>
-    Thank you for choosing our website. Where Good Food Meets Great Moments.<br><br><br>
+    <hr width=250 color="orange"><br><br>
+    Welcome to our Blood Bank Management System. <br><br>
+    Where saving lives is our mission. We are dedicated to ensuring a stable and reliable blood supply for those in need.<br><br><br>
+    Join us in making a difference because every drop counts.<br><br><br>
     Meet the Developers<br><br>
-    <hr width=500><br><br>
+    <hr width=500 color="orange"><br><br>
 
     <table border="0" width=85% cellpadding=10>
 
     <tr align="center">
-        <td>Noshin Farzana</td>
-        <td>Avijit Saha Anto</td>
-        <td>Arik Ahmed Zelan</td>
-        <td>Sadikul Mobasshir</td>
+        <td>Abdullah Al Noman</td>
+        <td>Tarikul Islam Nishat</td>
+        <td>Sadman Shakib</td>
+        <td>Jannatul Ferdous Reyan</td>
     </tr>
     <tr align="center">
-        <td>21-44647-1</td>
-        <td>21-44630-1</td>
-        <td>21-44600-1</td>
-        <td>21-44415-1</td>
+        <td>21-44573-1</td>
+        <td>21-44632-1</td>
+        <td>21-44673-1</td>
+        <td>21-44646-1</td>
     </tr>
 
     </table>
