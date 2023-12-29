@@ -8,4 +8,13 @@ function allbloodreq(){
     return $result;
 }
 
+function updatebloodinfo($req_id,$id){
+    $conn=dbConnection();
+    $sql="update bloodrequest set Status = 'Approved' where RequestID ='$req_id'";
+    $result = mysqli_query($conn, $sql);
+    $date=date('Y-m-d');
+    $sql1="insert into approvalhistory values('','$req_id','$id','$date') ";
+    $result = mysqli_query($conn, $sql1);
+    return true;
+}
 ?>
