@@ -40,25 +40,25 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
                     $fullname=$row['FirstName']." ".$row['LastName'];
                 echo "<td>
                     Full Name : {$fullname} </font><br><br>
-                    Username  : {$row['Username']} </font><br><br>
-                    DOB       : {$row['DOB']} </font><br><br>
-                    Religion  : {$row['Religion']} </font><br><br>
-                    Phone     : {$row['Phone']} </font><br><br>
-                    Email     : {$row['Email']} </font><br><br>
-                    Address   : {$row['Address']} </font><br>
+                    Email  : {$row['Email']} </font><br><br>
+                    Date Of Birth       : {$row['DOB']} </font><br><br>
+                    Blood Group  : {$row['BloodGroup']} </font><br><br>
+                    Gender     : {$row['Gender']} </font><br><br>
+                    Country     : {$row['Country']} </font><br><br>
+                    Phone   : {$row['Phone']} </font><br>
                 </td>";
 
                 }else{
                     $fullname=$row2['FirstName']." ".$row2['LastName'];
                 echo "<td>
-                    Full Name : {$fullname} </font><br><br>
-                    Username  : {$row2['Username']} </font><br><br>
-                    DOB       : {$row2['DOB']} </font><br><br>
-                    Religion  : {$row2['Religion']} </font><br><br>
-                    Phone     : {$row2['Phone']} </font><br><br>
-                    Email     : {$row2['Email']} </font><br><br>
-                    Address   : {$row2['Address']} </font><br>
-                </td>";
+                Full Name : {$fullname} </font><br><br>
+                Email  : {$row2['Email']} </font><br><br>
+                Date Of Birth       : {$row2['DOB']} </font><br><br>
+                Blood Group  : {$row2['BloodGroup']} </font><br><br>
+                Gender     : {$row2['Gender']} </font><br><br>
+                Country     : {$row2['Country']} </font><br><br>
+                Phone   : {$row2['Phone']} </font><br>
+            </td>";
 
                 }
 
