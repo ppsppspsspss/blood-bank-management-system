@@ -28,4 +28,16 @@ require_once('database.php');
         
     }
 
+    function userInfo($id){
+
+        $con=dbConnection();
+        $sql="select* from UserInfo where UserID='$id'";
+
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_assoc($result);
+
+        return $row;
+        
+    }
+
 ?>

@@ -54,7 +54,7 @@ if (isset($_GET['success'])) {
     <table width="27%" border="1" cellspacing="0" cellpadding="25" class="table">
         <tr>
             <td>
-                <form id="signin" method="post" action="../controller/sign-in-controller.php">
+                <form method="post" action="../controller/sign-in-controller.php">
                     <h1>Sign In</h1>
                     Email
                     <input type="email" name="email" size="43px">

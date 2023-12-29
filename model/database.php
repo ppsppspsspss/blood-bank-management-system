@@ -2,7 +2,7 @@
 
 function dbConnection(){
 
-    $conn = mysqli_connect('localhost', 'root', '', 'BookShopManagementSystem');
+    $conn = mysqli_connect('localhost', 'root', '', 'BloodBankManagementSystem');
     return $conn;
     
 }
