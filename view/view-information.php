@@ -31,7 +31,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     ?>
     </center>
     <br><br>
-    <table width="27%" border="1" cellspacing="0" cellpadding="25" align="center">
+    <table width="27%" border="1" cellspacing="0" cellpadding="25" align="center" class="table">
         <tr>
             <?php
 

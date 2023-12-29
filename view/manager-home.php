@@ -30,7 +30,10 @@
             <td>
             <a href="schedule.php"><button class="btn submit">Schedule</button></a><br><br>
             <a href="create-new-schedule.php"><button class="btn submit">Create New Schedule</button></a><br><br>
-            <a href="user-list.php"><button class="btn submit">User List</button></a>
+            <a href="user-list.php"><button class="btn submit">User List</button></a><br><br>
+            <a href="blood-request.php"><button class="btn submit">Approve Blood Request</button></a><br><br>
+            <a href="dashboard.php"><button class="btn submit">Dashboard</button></a><br><br>
+            <a href="approval-history.php"><button class="btn submit">Approval History</button></a>
             </td>
         </tr>
     </table>
