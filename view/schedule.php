@@ -48,7 +48,7 @@ $result=allSchedule();
         }
         echo"</table>";
     }else{
-        echo "<h2>No Schedule Found<h2>";
+        echo "<center><h2>No Schedule Found<h2></center>";
     }
     ?>
 </body>
