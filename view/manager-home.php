@@ -14,12 +14,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Manager Home</title>
 </head>
 <body>
-    <?php echo "<img src=\" {$row['ProfilePicture']} \" width=\"40px\">"; ?> &nbsp;&nbsp; |  &nbsp;&nbsp; <a href="profile.php">Profile</a> &nbsp;&nbsp; |  &nbsp;&nbsp; <a href="logout-controller.php">Logout</a><br><br><br>
-    <a href="schedule.php">Schedule</a>
-    <br><br>
-    <a href="user-list.php">User List</a>
+<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "<img src=\" ../{$row['ProfilePicture']} \" width=\"40px\">"; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="profile" onchange="location = this.value;">
+        <option disabled selected hidden> <?php echo $row['FirstName'].' '.$row['LastName']; ?></option>
+        <option value="profile.php">Profile</option>
+        <option value="settings.php">Settings</option>
+        <option value="../controller/logout-controller.php">Log Out</option>
+    </select></p>
+    <table width="27%" border="1" cellspacing="0" cellpadding="25" class="table">
+        <tr>
+            <td>
+            <a href="schedule.php"><button class="btn submit">Schedule</button></a>
+            <br><br>
+            <a href="user-list.php"><button class="btn submit">User List</button></a>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
