@@ -32,7 +32,7 @@ $result=allbloodreq();
             <td align=\"center\">$BloodGroup</td>
             <td align=\"center\">$NumberOfBags</td>
             <td align=\"center\">$DateOfDonation</td>
-            <td align=\"center\"><a href=\"../controller/approve-controller.php?id=$rid\">Approve</a></td>
+            <td align=\"center\"><a href=\"../controller/approve-controller.php?req_id=$rid\">Approve</a></td>
         </tr>";
         }
         echo"</table>";

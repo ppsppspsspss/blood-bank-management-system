@@ -10,14 +10,7 @@ function deleteschedule($id){
     $conn=dbConnection();
     $sql="delete from scheduleinfo where ScheduleID='$id'";
     $result=mysqli_query($conn,$sql);
-    $count = mysqli_num_rows($result);
-
-    if($count==1){
-        return true;
-    }
-    else{
-        return false;
-    } 
+    return true;
 }
 
 function addSchedule($name, $email, $phone, $bloodG, $gender, $donate_date, $addedBy){
