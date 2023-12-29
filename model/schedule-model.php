@@ -10,6 +10,13 @@ function deleteschedule($id){
     $conn=dbConnection();
     $sql="delete from scheduleinfo where ScheduleID='$id'";
     $result=mysqli_query($conn,$sql);
-    return $result;
+    $count = mysqli_num_rows($result);
+
+    if($count==1){
+        return true;
+    }
+    else{
+        return false;
+    } 
 }
 ?>

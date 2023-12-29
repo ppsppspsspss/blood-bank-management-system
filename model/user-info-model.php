@@ -39,5 +39,11 @@ require_once('database.php');
         return $row;
         
     }
+    function alluser(){
+        $conn=dbConnection();
+        $sql="select * from UserInfo";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+    }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
 require_once('../model/schedule-model.php');
 $id=$_GET['id'];
-$result=deleteschedule($id);
+$result=deleteschedule($id); //true or false
 ?>
