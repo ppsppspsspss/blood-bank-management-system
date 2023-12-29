@@ -15,9 +15,8 @@ $result = allSchedule();
 <body><a href="manager-home.php" class="backButton">&#8249;</a><br><br>
 <center>
         <h1>Schedule List</h1>
-        <hr width="20%" color="orange"><br>
-</center><br>
-<center><a href="create-new-schedule.php"><button class="btn submit">Create New Schedule</button></a></center><br><br>
+        <hr width="20%" color="orange"><br><br>
+</center>
     <?php
     if(mysqli_num_rows($result) > 0) {
         echo"<table align=\"center\" width=\"85%\" border=\"1\" bgcolor = \"white\" cellpadding=\"15\" cellspacing=\"0\" class=\"table\">

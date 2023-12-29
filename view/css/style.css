@@ -5,7 +5,10 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
-a{text-decoration: none;}
+a{
+    text-decoration: none;
+    color: blue;
+}
 
 .backButton {
     text-decoration: none;

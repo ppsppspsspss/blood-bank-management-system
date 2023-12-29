@@ -16,9 +16,11 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>View Information</title>
 </head>
 <body>
+<a href="profile.php" class="backButton">&#8249;</a>
     <br><br>
     <center>
     <?php
