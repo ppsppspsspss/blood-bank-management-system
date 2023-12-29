@@ -1,0 +1,99 @@
+body {
+    background-image: url("../../uploads/images/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+a{text-decoration: none;}
+
+.backButton {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+
+  .backButton:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .backButton{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+  }
+  
+
+.table{
+
+    margin-left: auto;
+    margin-right: auto;
+    border-color: orange;
+
+}
+.btn
+{
+    border: 1px solid black;
+    background: none;
+    width: 350px;
+    padding: 10px 20px;
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.submit
+{
+    color: black;
+}
+.submit:hover
+{
+    color: black;
+}
+.btn::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: orange;
+    z-index: -1;
+    transition: 0.7s;
+}
+.submit::before
+{
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+.submit:hover::before
+{
+    height: 180%;
+}
+input[type=email] {
+    width: 100%;
+    padding: 9px 15px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 9px 15px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 9px 15px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
