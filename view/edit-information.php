@@ -93,32 +93,32 @@ if (isset($_GET['success'])) {
     <table width="23%" border="1" cellspacing="0" cellpadding="25" align="center" class="table">
         <tr>
             <td>
-                <form method="post" action="../Controller/edit-information-controller.php" novalidate autocomplete="off" onsubmit="return isValid(this);">
+                <form method="post" action="../Controller/edit-information-controller.php" novalidate autocomplete="off" onsubmit="return validateEditInfoForm(this);">
                     <input type="hidden" name="id" value="<?= $id ?> ">
                     <h1>Edit Information</h1>
                     First Name
-                    <input type="text" name="firstName" size="43px" value="<?php echo $row['FirstName'] ?>">
+                    <input type="text" name="firstName" id="firstName" size="43px" value="<?php echo $row['FirstName'] ?>">
                     <?php if (strlen($firstNameMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $firstNameMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="firstNameError"></font><br>
                     Last Name
-                    <input type="text" name="lastName" size="43px" value="<?php echo $row['LastName'] ?>">
+                    <input type="text" name="lastName" id="lastName" size="43px" value="<?php echo $row['LastName'] ?>">
                     <?php if (strlen($lastNameMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $lastNameMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="lastNameError"></font><br>
                     Phone Number
-                    <input type="text" name="phone" size="43px" value="<?php echo $row['Phone'] ?>">
+                    <input type="text" name="phone" id="phone" size="43px" value="<?php echo $row['Phone'] ?>">
                     <?php if (strlen($phoneMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $phoneMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="phoneError"></font><br>
                     Email
-                    <input type="email" name="email" size="43px" value="<?php echo $row['Email'] ?>" onkeyup="checkEmailValidity(this.value)">
+                    <input type="email" name="email" id="email" size="43px" value="<?php echo $row['Email'] ?>" onkeyup="checkEmailValidity(this.value)">
                     <?php if (strlen($emailMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $emailMsg ?></font>
@@ -127,10 +127,10 @@ if (isset($_GET['success'])) {
                     Blood Group &nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="bloodGroup" value="<?php echo $row['BloodGroup'] ?>">
                         <option value="B+">B+</option>
-                        <option value="B+">A+</option>
-                        <option value="B+">O+</option>
-                        <option value="B+">A-</option>
-                        <option value="B+">AB+</option>
+                        <option value="A+">A+</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="AB+">AB+</option>
                     </select>
                     <?php if (strlen($bloodGroupMsg) > 0) { ?>
                         <br><br>
@@ -138,22 +138,22 @@ if (isset($_GET['success'])) {
                     <?php } ?>
                     <br><br>
                     Date of Birth &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="date" type="date" name="dob" size="43px" value="<?php echo date('Y-m-d',strtotime($row["DOB"])) ?>">
+                    <input type="date" type="date" name="dob" id="dob" size="43px" value="<?php echo date('Y-m-d',strtotime($row["DOB"])) ?>">
                     <?php if (strlen($dobMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $dobMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="dobError"></font><br>
                     <?php $gender=$row['Gender'] ?>
                     Gender &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="gender" value="Male" <?php if($gender=="Male") echo "checked" ?>> Male
-                    <input type="radio" name="gender" value="Female" <?php if($gender=="Female") echo "checked" ?>> Female
-                    <input type="radio" name="gender" value="Other" <?php if($gender=="Others") echo "checked" ?>> Other
+                    <input type="radio" name="gender" id="gender1" value="Male" <?php if($gender=="Male") echo "checked" ?>> Male
+                    <input type="radio" name="gender" id="gender2" value="Female" <?php if($gender=="Female") echo "checked" ?>> Female
+                    <input type="radio" name="gender" id="gender3" value="Other" <?php if($gender=="Others") echo "checked" ?>> Other
                     <?php if (strlen($genderMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $genderMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="genderError"></font><br>
                     Country &nbsp;&nbsp;&nbsp;&nbsp;
                     <?php
                     $country=$row['Country'];

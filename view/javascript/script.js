@@ -133,3 +133,101 @@ function validateSignUpForm(form){
 
 
 }
+
+function validateEditInfoForm(form){
+
+    
+    let firstName = form.firstName.value;
+    let lastName = form.lastName.value;
+    let phone = form.phone.value;
+    let email = form.email.value;
+    let gender;
+    if(form.gender1.checked) gender = "Male";
+    if(form.gender2.checked) gender = "Female";
+    if(form.gender3.checked) gender = "Other";
+    let dob = form.dob.value;
+    let flag = true;
+
+    document.getElementById("firstNameError").innerHTML = "";
+    document.getElementById("lastNameError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("genderError").innerHTML = "";
+    document.getElementById("dobError").innerHTML = "";
+
+    if(!firstName) {
+
+        document.getElementById("firstNameError").innerHTML = "Please enter your first name<br>";
+        flag = false;
+
+    }
+    if(!lastName) {
+
+        document.getElementById("lastNameError").innerHTML = "Please enter your last name<br>";
+        flag = false;
+
+    }
+    if(!phone) {
+
+        document.getElementById("phoneError").innerHTML = "Please enter your phone<br>";
+        flag = false;
+
+    }
+    if(!email) {
+
+        document.getElementById("emailError").innerHTML = "Please enter your email<br>";
+        flag = false;
+
+    }
+    if(!gender) {
+
+         document.getElementById("genderError").innerHTML = "<br>Please enter your gender<br>";
+         flag = false;
+
+    }
+    if(!dob) {
+
+        document.getElementById("dobError").innerHTML = "<br>Please enter your date of birth<br>";
+        flag = false;
+
+    }
+
+    return flag;
+
+}
+
+function validateUpdatePasswordForm(form){
+
+    
+    let prevpassword = form.prevpassword.value;
+    let password = form.password.value;
+    let cpassword = form.cpassword.value;
+    
+    let flag = true;
+
+    document.getElementById("prevPasswordError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("cpasswordError").innerHTML = "";
+
+    if(!prevpassword) {
+
+        document.getElementById("prevPasswordError").innerHTML = "Please enter your previous password<br>";
+        flag = false;
+
+    }
+    if(!password) {
+
+        document.getElementById("passwordError").innerHTML = "Please enter a new password<br>";
+        flag = false;
+
+    }
+    if(!cpassword) {
+
+        document.getElementById("cpasswordError").innerHTML = "Please re enter your password<br>";
+        flag = false;
+
+    }
+
+    return flag;
+
+}
