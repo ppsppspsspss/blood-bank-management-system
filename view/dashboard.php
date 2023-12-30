@@ -1,5 +1,8 @@
 <?php
 session_start();
+require('../model/user-info-model.php');
+require('../model/blood-info-model.php');
+
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 
 
@@ -18,11 +21,11 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     <table width="27%" border="1" cellspacing="0" cellpadding="25" align="center" class="table">
         <tr>
             <td>
-                Number of Patients : <br><br>
-                Number of Male Patients : <br><br>
-                Number of Female Patients : <br><br>
-                Number of Pending Blood Requests : <br><br>
-                Number of Approved Blood Requests : <br>
+                Number of Patients : <?= getPatientCount()?> <br><br>
+                Number of Male Patients : <?= getPatientCount("Male")?> <br><br>
+                Number of Female Patients : <?= getPatientCount("Female") ?> <br><br>
+                Number of Pending Blood Requests : <?= getAllReqCount("Pending") ?> <br><br>
+                Number of Approved Blood Requests : <?= getAllReqCount("Approved") ?> <br>
             </td>
         </tr>
     </table>

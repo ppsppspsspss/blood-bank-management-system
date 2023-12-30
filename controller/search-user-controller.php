@@ -26,6 +26,6 @@ if(mysqli_num_rows($result) > 0) {
     }
     echo"</table>";
 }else{
-    echo "<center><h2>No User Found<h2></center>";
+    echo "<center>No Search Result Found</center>";
 }
 ?>

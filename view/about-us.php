@@ -8,7 +8,6 @@
 </head>
 <body>
 <a href="manager-home.php" class="backButton">&#8249;</a><br><br>
-    <br><br><br>
     <center>
     <h1>About Us</h1>
     <hr width=250 color="orange"><br><br>

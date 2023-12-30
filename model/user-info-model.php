@@ -75,6 +75,14 @@ require_once('database.php');
         return $result;
     }
 
+    function getPatientCount($gender = ""){
+        $conn=dbConnection();
+        $sql="SELECT COUNT(UserID) as count FROM userinfo WHERE Role = 'Patient'";
+        if(!empty($gender)) $sql .= " and Gender = '$gender'";
+        $result=mysqli_query($conn,$sql);
+        return mysqli_fetch_assoc($result)['count'];
+    }
+
     function changePassword($id, $newpass){
 
         $con = dbConnection();
@@ -84,5 +92,7 @@ require_once('database.php');
         else return false; 
         
     }
+
+    
 
 ?>

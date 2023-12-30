@@ -1,6 +1,6 @@
 function live(str){
     if(str==""){
-        document.getElementById('message').innerHTML="Please enter a username";
+        document.getElementById('message').innerHTML="Please enter a name";
         return;
     }
     let xhttp=new XMLHttpRequest(); 
