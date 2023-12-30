@@ -86,6 +86,7 @@ if (isset($_GET['success'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Information</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/script.js"></script>
 </head>
 <body>
 <a href="settings.php" class="backButton">&#8249;</a><br><br><br>
@@ -116,12 +117,12 @@ if (isset($_GET['success'])) {
                     <?php } ?>
                     <br><br>
                     Email
-                    <input type="email" name="email" size="43px" value="<?php echo $row['Email'] ?>">
+                    <input type="email" name="email" size="43px" value="<?php echo $row['Email'] ?>" onkeyup="checkEmailValidity(this.value)">
                     <?php if (strlen($emailMsg) > 0) { ?>
                         <br><br>
                         <font color="red"><?= $emailMsg ?></font>
                     <?php } ?>
-                    <br><br>
+                    <br><font color="red" id="emailError"></font><br>
                     Blood Group &nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="bloodGroup" value="<?php echo $row['BloodGroup'] ?>">
                         <option value="B+">B+</option>
@@ -168,7 +169,7 @@ if (isset($_GET['success'])) {
                         <font color="red"><?= $countryMsg ?></font>
                     <?php } ?>
                     <br><br>
-                    <button class="btn submit">Update Account Info</button>
+                    <button class="btn submit" id="button">Update Account Info</button>
                 </form>
             </td>
         </tr>

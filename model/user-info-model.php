@@ -93,6 +93,19 @@ require_once('database.php');
         
     }
 
+    function uniqueEmail($email){
+
+        $con = dbConnection();
+        $sql = "select email from userinfo where email = '{$email}'";
+        $result=mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+
+        if($count > 0) return false;
+        else return true; 
+        
+    }
+
+
     
 
 ?>
