@@ -76,7 +76,7 @@ require_once('database.php');
 
     function searchuser($name){
         $conn=dbConnection();
-        $sql="SELECT * FROM userinfo WHERE FirstName OR LastName LIKE'%$name%'";
+        $sql="SELECT * FROM userinfo WHERE CONCAT(FirstName,LastName) LIKE'%$name%'";
         $result=mysqli_query($conn,$sql);
         return $result;
     }
