@@ -21,7 +21,7 @@ $result = alluser();
         </table>
         <br>
         <font id="message"></font>
-        <br>
+        <br><br>
     </center>
     <?php
     if(mysqli_num_rows($result) > 0) {
