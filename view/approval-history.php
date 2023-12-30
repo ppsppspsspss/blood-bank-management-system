@@ -8,23 +8,21 @@ $result=ApproveModel::getInstance()->allapprovedreq($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Approve History</title>
 </head>
 <body>
+<a href="manager-home.php" class="backButton">&#8249;</a><br><br>
 <center>
         <h1>Approve History</h1>
-        <hr width="20%" color="orange"><br>
-        <table border="0"><tr><td><input type="text" name="search" onkeyup="live(this.value)" placeholder="Search By Name"></td></tr>
-        </table>
-        <br>
-        <font id="message"></font>
+        <hr width="30%" color="orange"><br>
         <br><br>
     </center>
     <?php
     if(mysqli_num_rows($result) > 0) {
         echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" >
         <tr><td align=\"center\">Name</td>
-            <td align=\"center\">Approve Date</td>
+            <td align=\"center\">Approval Date</td>
             <td align=\"center\">Blood Group</td>
             <td align=\"center\">Number Of Bags</td>
             </tr>";
@@ -42,7 +40,7 @@ $result=ApproveModel::getInstance()->allapprovedreq($id);
         }
         echo"</table>";
     }else{
-        echo "<center><h2>No History Found<h2></center>";
+        echo "<center><h2>No Approval History Found<h2></center>";
     }
     ?>  
 </body>
