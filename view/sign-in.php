@@ -48,6 +48,7 @@ if (isset($_GET['success'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/script.js"></script>
 </head>
 <body>
 <br><br><br>
@@ -57,7 +58,7 @@ if (isset($_GET['success'])) {
                 <form method="post" action="../controller/sign-in-controller.php">
                     <h1>Sign In</h1>
                     Email
-                    <input type="email" name="email" size="43px">
+                    <input type="email" id="email" name="email" size="43px" onkeyup="checkEmailExist()">
                     <br><font color="red" id="emailError"></font><br>
                     Password
                     <input type="password" name="password" size="43px">

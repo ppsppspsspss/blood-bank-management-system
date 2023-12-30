@@ -29,3 +29,28 @@ function checkEmailValidity(email){
     }
 
 }
+
+function checkEmailExist(){
+    let emailErr = document.getElementById('emailError');
+    let email = document.getElementById('email').value;
+    if(email.length == 0) {
+        email.innerHTML = "";
+        return;
+    }
+    
+    let xhttp = new XMLHttpRequest();
+    xhttp.open('GET', '../controller/email-validation-controller.php?email='+email, true);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            if(this.responseText == 'This email already belongs to another account<br>'){
+                emailErr.innerHTML = "";
+                
+            }
+            else{
+                emailErr.innerHTML = "No account found with this Email<br>";
+            }
+        }
+    }
+}
