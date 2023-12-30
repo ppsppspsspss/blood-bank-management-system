@@ -17,7 +17,7 @@ $result = alluser();
 <center>
         <h1>User List</h1>
         <hr width="20%" color="orange"><br>
-        <table border="0"><tr><td><input type="text" name="search" onkeyup="live(this.value)" placeholder="Search By First Name"></td></tr>
+        <table border="0"><tr><td><input type="text" name="search" onkeyup="live(this.value)" placeholder="Search By Name"></td></tr>
         </table>
         <br>
         <font id="message"></font>
