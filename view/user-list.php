@@ -30,6 +30,7 @@ $result = alluser();
             <td align=\"center\">Blood Group</td>
             <td align=\"center\">Date Of Birth</td>
             <td align=\"center\">Email</td>
+            <td align=\"center\">Role</td>
             <td align=\"center\">Action</td>
             </tr>";
         while($row = mysqli_fetch_assoc($result)) {
@@ -38,11 +39,13 @@ $result = alluser();
             $email=$row['Email'];
             $dob=$row['DOB'];
             $BG=$row['BloodGroup'];
+            $role=$row['Role'];
             echo"
             <tr><td align=\"center\">$name</td>
             <td align=\"center\">$BG</td>
             <td align=\"center\">$dob</td>
             <td align=\"center\">$email</td>
+            <td align=\"center\">$role</td>
             <td align=\"center\"><a href=\"../view/view-information.php?id=$uid\">View Information</a></td>
         </tr>";
         }

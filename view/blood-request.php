@@ -10,7 +10,7 @@ $result=allbloodreq();
     <title>Blood Request</title>
 </head>
 <body>
-    <center><h1>Blood Request</h1><hr width="40%">
+    <center><h1>Blood Request</h1><hr width="40%"><br>
     </center>
     <?php
     if(mysqli_num_rows($result) > 0) {
