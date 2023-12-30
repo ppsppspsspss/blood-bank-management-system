@@ -26,6 +26,10 @@ if(isset($_GET['donorEmail'])){
             <form action="" method="get">
                 Donor Email <br>
                 <input type="email" name="donorEmail">
+                <?php if (strlen($emailMsg) > 0) { ?>
+                        <br><br>
+                        <font color="red"><?= $emailMsg ?></font>
+                    <?php } ?>
                 <br><br>
                 <button type="submit" class="btn submit">Import</button>
             </form>
