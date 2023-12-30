@@ -1,5 +1,5 @@
 <?php
-
+require_once('../model/')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,6 @@
     <title>Approve History</title>
 </head>
 <body>
-<center>Approved List
-    <hr>
-</center>    
+<center><h2>Approved List</h2><hr width="30%"></center>    
 </body>
 </html>

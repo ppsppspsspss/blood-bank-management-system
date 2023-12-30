@@ -37,7 +37,7 @@ $result=allbloodreq();
         }
         echo"</table>";
     }else{
-        echo "<center><h2>No User Found<h2></center>";
+        echo "<center><h2>No Request Found<h2></center>";
     }
     ?>
 </body>
