@@ -17,4 +17,11 @@ function updatebloodinfo($req_id,$id){
     $result = mysqli_query($conn, $sql1);
     return true;
 }
+
+function getAllReqCount($status){
+    $conn=dbConnection();
+    $sql="SELECT COUNT(RequestID) as count FROM bloodrequest WHERE Status = '{$status}'";
+    $result=mysqli_query($conn,$sql);
+    return mysqli_fetch_assoc($result)['count'] ;
+}
 ?>
