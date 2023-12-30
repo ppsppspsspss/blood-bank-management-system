@@ -27,6 +27,12 @@ require_once('database.php');
         else return false;
         
     }
+    function updateUser($id, $firstName, $lastName, $email, $bloodGroup, $dob, $gender, $country, $phone){
+        $con = dbConnection();
+        $sql = "UPDATE userinfo SET FirstName = '$firstName', LastName = '$lastName', Email = '$email', BloodGroup = '$bloodGroup', DOB = '$dob', Gender = '$gender', Country = '$country', Phone = '$phone' WHERE UserID = '$id'";
+        if(mysqli_query($con, $sql)) return true;
+        else return false;
+    }
 
     function userInfo($id){
 

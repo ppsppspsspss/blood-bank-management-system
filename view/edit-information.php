@@ -94,6 +94,7 @@ if (isset($_GET['success'])) {
         <tr>
             <td>
                 <form method="post" action="../Controller/edit-information-controller.php" novalidate autocomplete="off" onsubmit="return isValid(this);">
+                    <input type="hidden" name="id" value="<?= $id ?> ">
                     <h1>Edit Information</h1>
                     First Name
                     <input type="text" name="firstName" size="43px" value="<?php echo $row['FirstName'] ?>">
