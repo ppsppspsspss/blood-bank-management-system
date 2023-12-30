@@ -25,7 +25,7 @@ $result = alluser();
     </center>
     <?php
     if(mysqli_num_rows($result) > 0) {
-        echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" >
+        echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" class=\"table\">
         <tr><td align=\"center\">Name</td>
             <td align=\"center\">Blood Group</td>
             <td align=\"center\">Date Of Birth</td>

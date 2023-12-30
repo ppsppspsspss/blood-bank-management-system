@@ -65,7 +65,7 @@ if (isset($_GET['success'])) {
 </head>
 <body>
 <a href="settings.php" class="backButton">&#8249;</a><br><br><br>
-    <table width="27%" border="1" cellspacing="0" cellpadding="25" align="center">
+    <table width="27%" border="1" cellspacing="0" cellpadding="25" align="center" class="table">
         <tr>
             <td>
                 <form method="post" action="../controller/update-password-controller.php">

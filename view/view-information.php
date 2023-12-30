@@ -20,7 +20,9 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     <title>View Information</title>
 </head>
 <body>
-<a href="profile.php" class="backButton">&#8249;</a>
+<?php if($flag == 0) echo "<a href=\"profile.php\" class=\"backButton\">&#8249;</a>"; ?>
+<?php if($flag == 1) echo "<a href=\"user-list.php\" class=\"backButton\">&#8249;</a>"; ?>
+
     <br><br>
     <center>
     <?php
@@ -47,7 +49,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
                     Phone   : {$row['Phone']} </font><br>
                     </td>";
                 }else{
-                    $fullname=$row2['FirstName']." ".$row2['LastName'];
+                    $fullname = $row2['FirstName']." ".$row2['LastName'];
                 echo "<td>
                 Full Name : {$fullname} </font><br><br>
                 Email  : {$row2['Email']} </font><br><br>

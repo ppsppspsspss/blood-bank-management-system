@@ -7,14 +7,17 @@ $result=allbloodreq();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Blood Request</title>
 </head>
 <body>
-    <center><h1>Blood Request</h1><hr width="40%">
+<a href="manager-home.php" class="backButton">&#8249;</a>
+    <center><h1>Blood Request</h1><hr width="30%" color="orange">
     </center>
+    <br><br>
     <?php
     if(mysqli_num_rows($result) > 0) {
-        echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" >
+        echo"<table align=\"center\" width=\"60%\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" class=\"table\">
         <tr><td align=\"center\">Name</td>
             <td align=\"center\">Blood Group</td>
             <td align=\"center\">Number Of Bags</td>
