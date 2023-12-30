@@ -4,7 +4,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     require_once('../model/user-info-model.php');    
   
     $id = $_COOKIE['id'];
-    $row = userInfo($id);
+    $row = UserModel::getInstance()->userInfo($id);
 
     $firstNameMsg = $phoneMsg = $bloodGroupMsg = $dobMsg = $genderMsg = $countryMsg = $lastNameMsg = $emailMsg = $usernameMsg = $passwordMsg =  $cpasswordMsg =  '';
 

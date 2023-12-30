@@ -1,6 +1,6 @@
 <?php
 require_once('../model/blood-info-model.php');
-$result=allbloodreq();
+$result= BloodModel::getInstance()->allbloodreq();
 ?>
 <!DOCTYPE html>
 <html lang="en">

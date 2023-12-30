@@ -12,7 +12,7 @@ function sanitize($data){
 }
           
 $id = $_COOKIE['id'];
-$row = UserInfo($id);
+$row = UserModel::getInstance()->UserInfo($id);
 
 if(isset($_POST['submit'])){
 
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
     }
 
 
-    if(changePassword($id, $password)==true){
+    if(UserModel::getInstance()->changePassword($id, $password)==true){
         header('location:../view/update-password.php?success=updated'); 
         exit();
     }

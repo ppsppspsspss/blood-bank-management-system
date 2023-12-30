@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    updateUser($id, $firstName, $lastName, $email, $bloodGroup, $dob, $gender, $country, $phone);
+    UserModel::getInstance()->updateUser($id, $firstName, $lastName, $email, $bloodGroup, $dob, $gender, $country, $phone);
     header('Location: ../view/edit-information.php');
 
 } else

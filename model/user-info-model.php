@@ -1,117 +1,101 @@
-<?php 
+<?php
 
 require_once('database.php');
 
-    function login($email, $password){
+class UserModel {
+    private $con;
+    private static $instance;
 
-        $con = dbConnection();
-        $sql = "select * from UserInfo where email ='{$email}' and password ='{$password}'";
-        $result = mysqli_query($con, $sql);
+    public function __construct() {
+        $this->con = dbConnection();
+    }
+
+    public static function getInstance() {
+        if (!UserModel::$instance) {
+            UserModel::$instance = new UserModel();
+        }
+        return UserModel::$instance;
+    }
+    
+    public function login($email, $password) {
+        $sql = "SELECT * FROM UserInfo WHERE email ='{$email}' AND password ='{$password}'";
+        $result = mysqli_query($this->con, $sql);
         $count = mysqli_num_rows($result);
 
-        if($count == 1) 
-        {
-        $row = mysqli_fetch_assoc($result);
-        return $row;
+        if ($count == 1) {
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+        } else {
+            return false;
         }
-        else return false;
-
     }
 
-    function addUser($firstName, $lastName, $email, $password, $bloodGroup, $dob, $gender, $country, $phone, $role){
+    public function addUser($firstName, $lastName, $email, $password, $bloodGroup, $dob, $gender, $country, $phone, $role) {
+        $sql = "INSERT INTO UserInfo VALUES('', '{$firstName}', '{$lastName}', '{$email}', '{$password}', '{$bloodGroup}', '{$dob}', '{$gender}', '{$country}', '{$phone}', 'uploads/images/default_pfp.png', '{$role}')";
 
-        $con = dbConnection();
-        $sql = "insert into UserInfo values('', '{$firstName}' ,'{$lastName}' ,'{$email}', '{$password}', '{$bloodGroup}', '{$dob}', '{$gender}', '{$country}', '{$phone}', 'uploads/images/default_pfp.png', '{$role}')";
-
-        if(mysqli_query($con, $sql)) return true;
-        else return false;
-        
+        return mysqli_query($this->con, $sql);
     }
-    function updateUser($id, $firstName, $lastName, $email, $bloodGroup, $dob, $gender, $country, $phone){
-        $con = dbConnection();
+
+    public function updateUser($id, $firstName, $lastName, $email, $bloodGroup, $dob, $gender, $country, $phone) {
         $sql = "UPDATE userinfo SET FirstName = '$firstName', LastName = '$lastName', Email = '$email', BloodGroup = '$bloodGroup', DOB = '$dob', Gender = '$gender', Country = '$country', Phone = '$phone' WHERE UserID = '$id'";
-        if(mysqli_query($con, $sql)) return true;
-        else return false;
+
+        return mysqli_query($this->con, $sql);
     }
 
-    function userInfo($id){
-
-        $con=dbConnection();
-        $sql="select* from UserInfo where UserID='$id'";
-
-        $result=mysqli_query($con,$sql);
-        $row=mysqli_fetch_assoc($result);
-
-        return $row;
-        
-    }
-    function alluser(){
-        $conn=dbConnection();
-        $sql="select * from UserInfo where Role not like 'Manager'";
-        $result=mysqli_query($conn,$sql);
-        return $result;
-    }
-
-    function getUserByMail($email){
-
-        $con=dbConnection();
-        $sql="select * from UserInfo where Email = '$email'";
-
-        $result = mysqli_query($con,$sql);
+    public function userInfo($id) {
+        $sql = "SELECT * FROM UserInfo WHERE UserID='$id'";
+        $result = mysqli_query($this->con, $sql);
         $row = mysqli_fetch_assoc($result);
 
         return $row;
-        
     }
 
-    function updateProfilePicture($imagename, $id){
-
-        $con = dbConnection();
-        $sql = "update UserInfo set ProfilePicture = '{$imagename}' where UserID = '{$id}'";
-             
-        if(mysqli_query($con,$sql)===true) return true;
-        else return false; 
-        
-    }
-
-    function searchuser($name){
-        $conn=dbConnection();
-        $sql="SELECT * FROM userinfo WHERE CONCAT(FirstName,LastName) LIKE'%$name%' AND Role not like 'Manager'";
-        $result=mysqli_query($conn,$sql);
+    public function alluser() {
+        $sql = "SELECT * FROM UserInfo WHERE Role NOT LIKE 'Manager'";
+        $result = mysqli_query($this->con, $sql);
         return $result;
     }
 
-    function getPatientCount($gender = ""){
-        $conn=dbConnection();
-        $sql="SELECT COUNT(UserID) as count FROM userinfo WHERE Role = 'Patient'";
-        if(!empty($gender)) $sql .= " and Gender = '$gender'";
-        $result=mysqli_query($conn,$sql);
+    public function getUserByMail($email) {
+        $sql = "SELECT * FROM UserInfo WHERE Email = '$email'";
+        $result = mysqli_query($this->con, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        return $row;
+    }
+
+    public function updateProfilePicture($imagename, $id) {
+        $sql = "UPDATE UserInfo SET ProfilePicture = '{$imagename}' WHERE UserID = '{$id}'";
+
+        return mysqli_query($this->con, $sql);
+    }
+
+    public function searchuser($name) {
+        $sql = "SELECT * FROM userinfo WHERE CONCAT(FirstName,LastName) LIKE'%$name%' AND Role NOT LIKE 'Manager'";
+        $result = mysqli_query($this->con, $sql);
+        return $result;
+    }
+
+    public function getPatientCount($gender = "") {
+        $sql = "SELECT COUNT(UserID) as count FROM userinfo WHERE Role = 'Patient'";
+        if (!empty($gender)) $sql .= " AND Gender = '$gender'";
+        $result = mysqli_query($this->con, $sql);
         return mysqli_fetch_assoc($result)['count'];
     }
 
-    function changePassword($id, $newpass){
+    public function changePassword($id, $newpass) {
+        $sql = "UPDATE UserInfo SET Password = '$newpass' WHERE UserID = '$id'";
 
-        $con = dbConnection();
-        $sql = "update UserInfo set Password = '$newpass' where UserID = '$id'";
-
-        if(mysqli_query($con,$sql)===true) return true;
-        else return false; 
-        
+        return mysqli_query($this->con, $sql);
     }
 
-    function uniqueEmail($email){
-
-        $con = dbConnection();
-        $sql = "select email from userinfo where email = '{$email}'";
-        $result=mysqli_query($con, $sql);
+    public function uniqueEmail($email) {
+        $sql = "SELECT email FROM userinfo WHERE email = '{$email}'";
+        $result = mysqli_query($this->con, $sql);
         $count = mysqli_num_rows($result);
 
-        if($count > 0) return false;
-        else return true; 
-        
+        return $count === 0;
     }
-
-
-    
+}
 
 ?>

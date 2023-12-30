@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    addUser($firstName, $lastName, $email, $password, $bloodGroup, $dob, $gender, $country, $phone, $role);
+    UserModel::getInstance()->addUser($firstName, $lastName, $email, $password, $bloodGroup, $dob, $gender, $country, $phone, $role);
     header('Location: ../view/sign-in.php');
 
 } else

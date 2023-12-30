@@ -14,7 +14,7 @@ session_start();
 
     }
 
-    $status = login($email, $password);
+    $status = UserModel::getInstance()->login($email, $password);
 
     if($status!=false){
 

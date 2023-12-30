@@ -1,7 +1,7 @@
 <?php
 require_once('../model/user-info-model.php');
 $username=$_REQUEST['name'];
-$result=searchuser($username);
+$result=UserModel::getInstance()->searchuser($username);
 if(mysqli_num_rows($result) > 0) {
     echo"<table align=\"center\" width=\"60%\" class=\"table\" border=\"1\" cellpadding=\"15\" cellspacing=\"0\" bgcolor=\"white\" >
         <tr><td align=\"center\">Name</td>

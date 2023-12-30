@@ -5,7 +5,7 @@ if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
 
 $donor = null;
 if(isset($_GET['donorEmail'])){
-    $donor = getUserByMail($_GET['donorEmail']);
+    $donor = UserModel::getInstance()->getUserByMail($_GET['donorEmail']);
     if($donor && $donor['Role'] !== "Donor") $donor = null;
 }
 
@@ -48,7 +48,7 @@ if(isset($_GET['donorEmail'])){
                             <input type="hidden" name="phone"  value="<?= $donor['Phone']?> ">
                             <input type="hidden" name="bloodG"  value="<?= $donor['BloodGroup']?> ">
                             <input type="hidden" name="gender"  value="<?= $donor['Gender']?> ">
-                            <input type="hidden" name="added_by"  value="<?= userInfo($_COOKIE['id'])['Email'] ?> ">
+                            <input type="hidden" name="added_by"  value="<?= UserModel::getInstance()->userInfo($_COOKIE['id'])['Email'] ?> ">
                         <?php
                     }
                 ?>

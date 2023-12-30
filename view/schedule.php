@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 require_once('../model/schedule-model.php');
-$result = allSchedule(); 
+$result = ScheduleModel::getInstance()->allSchedule(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">

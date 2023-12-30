@@ -1,27 +1,43 @@
 <?php
+
 require_once('database.php');
 
-function allbloodreq(){
-    $conn=dbConnection();
-    $sql="select userinfo.FirstName,userinfo.LastName,bloodrequest.BloodGroup,bloodrequest.NumberOfBags,bloodrequest.DateOfDonation,bloodrequest.Status,bloodrequest.RequestID from userinfo,bloodrequest where userinfo.UserID =bloodrequest.UserID and bloodrequest.Status='Pending'";
-    $result = mysqli_query($conn, $sql);
-    return $result;
-}
+class BloodModel {
+    private static $instance;
+    private $con;
 
-function updatebloodinfo($req_id,$id){
-    $conn=dbConnection();
-    $sql="update bloodrequest set Status = 'Approved' where RequestID ='$req_id'";
-    $result = mysqli_query($conn, $sql);
-    $date=date('Y-m-d');
-    $sql1="insert into approvalhistory values('','$req_id','$id','$date') ";
-    $result = mysqli_query($conn, $sql1);
-    return true;
-}
+    private function __construct() {
+        $this->con = dbConnection();
+    }
 
-function getAllReqCount($status){
-    $conn=dbConnection();
-    $sql="SELECT COUNT(RequestID) as count FROM bloodrequest WHERE Status = '{$status}'";
-    $result=mysqli_query($conn,$sql);
-    return mysqli_fetch_assoc($result)['count'] ;
+    public static function getInstance() {
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public function allbloodreq() {
+        $sql = "SELECT userinfo.FirstName, userinfo.LastName, bloodrequest.BloodGroup, bloodrequest.NumberOfBags, bloodrequest.DateOfDonation, bloodrequest.Status, bloodrequest.RequestID FROM userinfo, bloodrequest WHERE userinfo.UserID = bloodrequest.UserID AND bloodrequest.Status='Pending'";
+        $result = mysqli_query($this->con, $sql);
+        return $result;
+    }
+
+    public function updatebloodinfo($req_id, $id) {
+        $sql = "UPDATE bloodrequest SET Status = 'Approved' WHERE RequestID ='$req_id'";
+        $result = mysqli_query($this->con, $sql);
+
+        $date = date('Y-m-d');
+        $sql1 = "INSERT INTO approvalhistory VALUES('', '$req_id', '$id', '$date')";
+        $result = mysqli_query($this->con, $sql1);
+
+        return true;
+    }
+
+    public function getAllReqCount($status) {
+        $sql = "SELECT COUNT(RequestID) as count FROM bloodrequest WHERE Status = '{$status}'";
+        $result = mysqli_query($this->con, $sql);
+        return mysqli_fetch_assoc($result)['count'];
+    }
 }
 ?>

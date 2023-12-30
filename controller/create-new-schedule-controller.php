@@ -8,7 +8,7 @@
     $scheduleDate = $_POST['scheduleDate'];
     $addedBy = $_POST['added_by'];
 
-    $res = addSchedule($name, $email, $phone, $bloodG, $gender, $scheduleDate, $addedBy);
+    $res = ScheduleModel::getInstance()->addSchedule($name, $email, $phone, $bloodG, $gender, $scheduleDate, $addedBy);
     header("location: ../view/schedule.php");
 
 

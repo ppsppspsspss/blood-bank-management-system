@@ -3,11 +3,11 @@ session_start();
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
     require_once('../model/user-info-model.php'); 
     $id = $_COOKIE['id'];
-    $row = userInfo($id);
+    $row = UserModel::getInstance()->userInfo($id);
     $flag = 0;
     if(isset($_GET['id'])){
     $id2 = $_GET['id'];
-    $row2 = UserInfo($id2);
+    $row2 = UserModel::getInstance()->UserInfo($id2);
     if($id!=$id2) $flag = 1;
     }
 ?>

@@ -17,7 +17,7 @@
 
     if(move_uploaded_file($src, $des)){ 
 
-        updateProfilePicture($fileName, $id);
+        UserModel::getInstance()->updateProfilePicture($fileName, $id);
         header('location:../view/update-pfp.php?success=uploaded');
         exit();
 

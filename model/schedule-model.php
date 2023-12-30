@@ -1,23 +1,44 @@
 <?php
-require_once('database.php');
-function allSchedule(){
-    $conn=dbConnection();
-    $sql="select * from scheduleinfo";
-    $result=mysqli_query($conn,$sql);
-    return $result;
-}
-function deleteschedule($id){
-    $conn=dbConnection();
-    $sql="delete from scheduleinfo where ScheduleID='$id'";
-    $result=mysqli_query($conn,$sql);
-    return true;
-}
 
-function addSchedule($name, $email, $phone, $bloodG, $gender, $donate_date, $addedBy){
-    $conn=dbConnection();
-    $sql="insert into scheduleinfo values('', '{$name}', '{$email}', '{$phone}', '{$bloodG}', '{$gender}', '{$donate_date}', '{$addedBy}');";
-    $result = mysqli_query($conn, $sql);
-    if(!$result) return false;
-    else return true;
+require_once('database.php');
+
+class ScheduleModel {
+    private static $instance;
+    private $con;
+
+    private function __construct() {
+        $this->con = dbConnection();
+    }
+
+    public static function getInstance() {
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public static function allSchedule() {
+        $modelInstance = self::getInstance();
+        $conn = $modelInstance->con;
+        $sql = "SELECT * FROM scheduleinfo";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
+
+    public static function deleteSchedule($id) {
+        $modelInstance = self::getInstance();
+        $conn = $modelInstance->con;
+        $sql = "DELETE FROM scheduleinfo WHERE ScheduleID='$id'";
+        $result = mysqli_query($conn, $sql);
+        return true;
+    }
+
+    public static function addSchedule($name, $email, $phone, $bloodG, $gender, $donate_date, $addedBy) {
+        $modelInstance = self::getInstance();
+        $conn = $modelInstance->con;
+        $sql = "INSERT INTO scheduleinfo VALUES('', '{$name}', '{$email}', '{$phone}', '{$bloodG}', '{$gender}', '{$donate_date}', '{$addedBy}')";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }
 ?>

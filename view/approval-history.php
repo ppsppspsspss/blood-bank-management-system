@@ -1,7 +1,7 @@
 <?php
 require_once('../model/approve-model.php');
 $id=$_COOKIE['id'];
-$result=allapprovedreq($id);
+$result=ApproveModel::getInstance()->allapprovedreq($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">

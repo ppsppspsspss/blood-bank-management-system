@@ -1,6 +1,6 @@
 <?php
 require_once('../model/user-info-model.php');
-$result = alluser();
+$result = UserModel::getInstance()->alluser();
 ?>
 <!DOCTYPE html>
 <html lang="en">
