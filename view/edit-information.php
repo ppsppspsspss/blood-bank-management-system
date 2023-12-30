@@ -88,7 +88,7 @@ if (isset($_GET['success'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<a href="settings.php" class="backButton">&#8249;</a><br><br><br>
     <table width="23%" border="1" cellspacing="0" cellpadding="25" align="center" class="table">
         <tr>
             <td>
@@ -173,5 +173,5 @@ if (isset($_GET['success'])) {
             </td>
         </tr>
     </table>
-    
+    <br><br>
 </body>
