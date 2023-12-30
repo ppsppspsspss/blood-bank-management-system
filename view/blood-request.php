@@ -1,4 +1,6 @@
 <?php
+session_start();
+if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 require_once('../model/blood-info-model.php');
 $result= BloodModel::getInstance()->allbloodreq();
 ?>

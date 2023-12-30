@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../model/user-info-model.php');
-if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
+if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=signIn');
 
 $emailMsg = "";
 $donor = null;
