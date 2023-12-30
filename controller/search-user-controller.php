@@ -8,6 +8,7 @@ if(mysqli_num_rows($result) > 0) {
             <td align=\"center\">Blood Group</td>
             <td align=\"center\">Date Of Birth</td>
             <td align=\"center\">Email</td>
+            <td align=\"center\">Role</td>
             <td align=\"center\">Action</td>
             </tr>";
     while($row = mysqli_fetch_assoc($result)) {
@@ -15,12 +16,14 @@ if(mysqli_num_rows($result) > 0) {
         $name=$row['FirstName']." ".$row['LastName'];
         $email=$row['Email'];
         $dob=$row['DOB'];
+        $role=$row['Role'];
         $BG=$row['BloodGroup'];
         echo"
         <tr><td align=\"center\">$name</td>
         <td align=\"center\">$BG</td>
         <td align=\"center\">$dob</td>
         <td align=\"center\">$email</td>
+        <td align=\"center\">$role</td>
         <td align=\"center\"><a href=\"../view/view-information.php?id=$uid\">View Information</a></td>
     </tr>";
     }

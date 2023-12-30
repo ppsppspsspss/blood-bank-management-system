@@ -76,7 +76,7 @@ require_once('database.php');
 
     function searchuser($name){
         $conn=dbConnection();
-        $sql="SELECT * FROM userinfo WHERE CONCAT(FirstName,LastName) LIKE'%$name%'";
+        $sql="SELECT * FROM userinfo WHERE CONCAT(FirstName,LastName) LIKE'%$name%' AND Role not like 'Manager'";
         $result=mysqli_query($conn,$sql);
         return $result;
     }
