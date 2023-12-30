@@ -58,7 +58,7 @@ if (isset($_GET['success'])) {
                     <h1>Sign In</h1>
                     Email
                     <input type="email" name="email" size="43px">
-                    <br><br>
+                    <br><font color="red" id="emailError"></font><br>
                     Password
                     <input type="password" name="password" size="43px">
                     <br><br>
