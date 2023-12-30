@@ -3,10 +3,15 @@ session_start();
 require_once('../model/user-info-model.php');
 if(!isset($_SESSION['flag'])) header('location:sign-in.php?err=accessDenied');
 
+$emailMsg = "";
 $donor = null;
 if(isset($_GET['donorEmail'])){
     $donor = UserModel::getInstance()->getUserByMail($_GET['donorEmail']);
-    if($donor && $donor['Role'] !== "Donor") $donor = null;
+    if($donor && $donor['Role'] !== "Donor") {
+        $donor = null;
+        $emailMsg = "No donor found with this email.";
+    }
+    else if(empty($_GET['donorEmail'])) $emailMsg = "Invalid value provided.";
 }
 
 ?>
