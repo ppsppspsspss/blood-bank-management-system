@@ -11,10 +11,10 @@ class ScheduleModel {
     }
 
     public static function getInstance() {
-        if (!self::$instance) {
-            self::$instance = new self();
+        if (!ScheduleModel::$instance) {
+            ScheduleModel::$instance = new ScheduleModel();
         }
-        return self::$instance;
+        return ScheduleModel::$instance;
     }
 
     public static function allSchedule() {

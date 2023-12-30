@@ -11,10 +11,10 @@ class ApproveModel {
     }
 
     public static function getInstance() {
-        if (!self::$instance) {
-            self::$instance = new self();
+        if (!BloodModel::$instance) {
+            BloodModel::$instance = new BloodModel();
         }
-        return self::$instance;
+        return BloodModel::$instance;
     }
 
     public function allapprovedreq($id) {
