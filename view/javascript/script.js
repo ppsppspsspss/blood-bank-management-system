@@ -46,7 +46,6 @@ function checkEmailExist(){
         if(this.readyState == 4 && this.status == 200){
             if(this.responseText == 'This email already belongs to another account<br>'){
                 emailErr.innerHTML = "";
-                
             }
             else{
                 emailErr.innerHTML = "No account found with this Email<br>";
@@ -56,8 +55,6 @@ function checkEmailExist(){
 }
 
 function validateSignUpForm(form){
-
-    
     let firstName = form.firstName.value;
     let lastName = form.lastName.value;
     let phone = form.phone.value;
